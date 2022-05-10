@@ -8,7 +8,7 @@ Stuff done with MicroControllers (like ESP8266, ESP32, (Arduino, Rasbperry pi pi
 
 Device(s)             | Script Name | Description                                           | Price
 ----------------------|-------------|-------------------------------------------------------|-------
-ESP-8266     0.94" OLED  | OLED Logo   | Display a logo (mine currently) on am OLED Display    | arround 16€  (ESP: ca. 8€, Screen: ca. 8€)
+ESP-8266, 0.94" OLED  | OLED Logo   | Display a logo (mine currently) on am OLED Display    | arround 16€  (ESP: ca. 8€, Screen: ca. 8€)
 ESP-8266              | WEB Server  | Host a simple web server using an esp8266             | ESP: ca- 8€
 
 
