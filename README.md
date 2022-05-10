@@ -1,4 +1,4 @@
-# microcontroller_stuff
+# Microcontroller Stuff
 Stuff done with MicroControllers (like ESP8266, ESP32, (Arduino, Rasbperry pi pico), etc)
 
 
