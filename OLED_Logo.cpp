@@ -1,11 +1,11 @@
 // -*-  ESP-8266 (12F)  ->  d1 mini pro  -*-
-// Links: https://
+// Links: https://github.com/TerrificTable/microcontroller_stuff/blob/main/Links.md
 
 
 // Nessesary for some stuff and to not get errors
-#include <Arduino.h>
-#include <Wire.h>
-#include <SPI.h>
+#include <Arduino.h>  // Standard Arduino Library
+#include <Wire.h>     // Wire, not sure what it does
+#include <SPI.h>      // I dont even know what its supposed to mean
 
 
 // Library for the screen
@@ -14,23 +14,20 @@
 
 
 // Set pins
-#define SDA             D1
-#define SCL             D2
+#define SDA             D1    // SDA pin
+#define SCL             D2    // SCL pin
 
-#define OLED_RESET      0
+// 128x64 oled screen
+#define OLED_RESET      0     // Reset Pin, not sure for what tho, but it needs to be defined
 #define SCREEN_WIDTH    128
 #define SCREEN_HEIGHT   64
-
-#define CURSER_POS      0
-#define CURSER_Y_POS    0 // 25 -> Middle of screen
-#define TEXT_SIZE       2
 
 // Set display variable
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
 
 
 
-// My Logo/Profile Picture in bytes (black & white)
+// My Logo/Profile Picture in bytes/bits/hex/whatever (black & gray & white)
 static const uint8_t image_data_array[488] = {
   0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 
   0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xff, 0xf0, 
@@ -109,23 +106,71 @@ void setup() {
     // Initialize screen
     display.begin(SSD1306_SWITCHCAPVCC, 0x3C);
     display.clearDisplay();
-    display.drawBitmap(0, 0, image_data_array, 60, 60, 1); // Display Image
-
-    
-    // Set Text Size and Color
-    display.setTextSize(1);
-    display.setTextColor(WHITE);
-   
-    display.setCursor(70, 20);    // Set Cursor
-    display.println("Terrific");  // Display Text
-
-    display.setCursor(70, 30);    // Set Cursor Again
-    display.println("Table55");   // Display More Text
-
-
-    display.display(); // Update Screen
 }
 
 void loop() {
-    // Not used but it gives me some errors if i remove it
+    
+    // Update display every 60secs / 1min
+    static unsigned long    Timer       = 0;
+
+    if (millis() > Timer ) {
+      
+      
+        Timer = millis() + 60000;
+      
+
+        // IMAGE
+        display.drawBitmap(0, 2, image_data_array, 60, 60, 1); // Draw Image
+        // fill corners since image isnt 60x64
+        display.fillRect(0, 0, 60, 2, WHITE);
+        display.fillRect(0, 62, 60, 64, WHITE);
+
+
+        // GITHUB TEXT
+        // set text color and size
+        display.setTextColor(1);
+        display.setTextColor(WHITE);
+        
+        // Place cursor in the middle (of whats left of the screen)
+        display.setCursor(80, 5);
+        display.println("GitHub"); // Write "GitHub"
+
+      
+        // Draw a line under "GitHub"
+        display.drawLine(70, 17, 128, 17, WHITE);
+
+        // Set cursor under the line
+        display.setCursor(73, 22);
+        display.println("Terrific"); // Write "Terrific"
+
+        // Set cursor under "Terrific"
+        display.setCursor(73, 30);
+        display.println("Table"); // Write "Table"
+
+
+
+        // BUTTON
+        // Set x,y and width and height values for box
+        int x = 70;
+        int y = 45;
+        int w = 55;
+        int h = 19;
+        
+        // draw a rectangular box (with slightly rounded corners)
+        display.drawRoundRect(x, y, w, h, 3, WHITE);
+        
+        // set text side and color again
+        display.setTextSize(1);
+        display.setTextColor(WHITE);
+
+        // place cursor in the middle of the box
+        display.setCursor((w / 2) + x - /* String length */ 18, 
+                          (h / 2) + y - /* Font height   */ 4);
+        display.println("Follow"); // Write "Follow"
+
+
+        // Update display
+        display.display();
+
+    }
 }
