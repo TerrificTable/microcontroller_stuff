@@ -6,11 +6,12 @@ Stuff done with MicroControllers (like ESP8266, ESP32, (Arduino, Rasbperry pi pi
 
 
 
-Device(s)             | Script Name | Description                                           | Price
-----------------------|-------------|-------------------------------------------------------|-------
-ESP-8266, 0.94" OLED  | OLED Logo   | Display a logo (mine currently) on an OLED Display    | arround 16€  (ESP: ca. 8€, Screen: ca. 8€)
-ESP-8266              | WEB Server  | Host a simple web server using an esp8266             | ESP: ca. 8€
-ESP-8266              | WiFi AP     | Create a WiFi Access Point                            | ESP: ca. 8€
+Device(s)                   | Script Name       | Description                                           | Price
+----------------------------|-------------------|-------------------------------------------------------|-------
+ESP-8266, 0.94" OLED        | OLED Logo         | Display a logo (mine currently) on an OLED Display    | arround 16€  (ESP: ca. 8€, Screen: ca. 8€)
+ESP-8266                    | WEB Server        | Host a simple web server using an esp8266             | ESP: ca. 8€
+ESP-8266                    | WiFi AP           | Create a WiFi Access Point                            | ESP: ca. 8€
+ESP-8266, TM1637            | TM1637_7Seg       | Display Some stuff on a 7segment display              | arround 12€  (ESP: ca. 8€, 7Seg: ca 4€)
 
 
 
