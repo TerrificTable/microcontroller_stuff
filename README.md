@@ -16,6 +16,6 @@ ESP-8266                    | AP_Spam               | Create a lot of WiFi Acces
 ESP-8266, 0.94" OLED        | DvDScreenSaver_like   | Draws a white ball on the screen that bounces of the edge of the screen   | arround 16€  (ESP: ca. 8€, Screen: ca. 8€)
 
 # Info
-VSCode Extensions:
-    - PlatformIO
-    - C/C++ Extensions Kit
+VSCode Extensions:<br>
+    - PlatformIO<br>
+    - C/C++ Extensions Kit<br>
